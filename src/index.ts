@@ -7,9 +7,8 @@ const main = async () => {
 			type: 'postgres',
 			host: 'localhost',
 			port: 5432,
-			username: 'root',
-			password: 'rootroot123',
-			database: 'typeorm',
+			username: 'postgres',
+			password: 'postgres123',
 			entities: [Client],
 			synchronize: true
 		});
@@ -20,3 +19,5 @@ const main = async () => {
 		throw new Error('Could not connect to Postgres Server');
 	}
 };
+
+main();

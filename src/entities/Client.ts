@@ -17,7 +17,7 @@ export class Client extends BaseEntity {
 	@Column({ unique: true })
 	cardNumber: string;
 
-	@Column({ type: 'number' })
+	@Column({ type: 'numeric' })
 	balance: number;
 
 	@Column({ default: true, name: 'active' })

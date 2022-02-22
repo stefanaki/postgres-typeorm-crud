@@ -3,8 +3,9 @@ import { Client } from './entities/Client';
 import { Banker } from './entities/Banker';
 import { Transaction } from './entities/Transaction';
 import express from 'express';
-import { createClientRouter } from './routes/CreateClient';
-import { createBankerRouter } from './routes/CreateBanker';
+import clientRouter from './routes/client';
+import transactionRouter from './routes/transaction';
+import bankerRouter from './routes/banker';
 
 const app = express();
 
@@ -25,8 +26,9 @@ const main = async () => {
 
 		app.use(express.json());
 
-		app.use('/api', createClientRouter);
-		app.use('/api', createBankerRouter);
+		app.use('/api/client', clientRouter);
+		app.use('/api/transaction', transactionRouter);
+		app.use('/api/banker', bankerRouter);
 
 		app.listen(process.env.PORT || 8080, () =>
 			console.log(`API started running on port ${process.env.PORT || 8080}`)
